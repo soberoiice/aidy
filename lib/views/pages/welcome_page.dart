@@ -1,3 +1,4 @@
+import 'package:aidy/views/pages/sign_in_page.dart';
 import 'package:aidy/views/pages/sign_up_page.dart';
 import 'package:aidy/views/widget_tree.dart';
 import 'package:flutter/material.dart';
@@ -170,7 +171,16 @@ class WelcomePage extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(double.infinity, 60.0),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return SignInPage();
+                        },
+                      ),
+                    );
+                  },
                   child: Text('Sign in'),
                 ),
               ],

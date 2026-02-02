@@ -1,4 +1,5 @@
 import 'package:aidy/views/pages/what_bring_you_here_page.dart';
+import 'package:aidy/views/widget_tree.dart';
 import 'package:aidy/views/widgets/enter_age_widget.dart';
 import 'package:aidy/views/widgets/enter_name_widget.dart';
 import 'package:flutter/material.dart';
@@ -84,11 +85,22 @@ class _AccountSetupPageState extends State<AccountSetupPage> {
             pages.elementAt(sliderValue.toInt() - 1),
             FilledButton(
               onPressed: () {
-                setState(() {
-                  sliderValue = sliderValue + 1;
-                });
+                if (sliderValue < 10) {
+                  setState(() {
+                    sliderValue = sliderValue + 1;
+                  });
+                } else {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return WidgetTree();
+                      },
+                    ),
+                  );
+                }
               },
-              child: Text('Continue'),
+              child: sliderValue == 10.0 ? Text('Finish') : Text('Continue'),
             ),
           ],
         ),

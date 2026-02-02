@@ -8,6 +8,7 @@ class LibraryPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Library'),
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         toolbarHeight: 100.0,
         centerTitle: true,
